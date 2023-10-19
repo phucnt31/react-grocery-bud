@@ -1,7 +1,14 @@
 import React from "react";
+import SingleItem from "./SingleItem";
 
-const Items = () => {
-  return <div>Items</div>;
+const Items = ({ items }) => {
+  return (
+    <section className="items">
+      {items.map((item) => {
+        return <SingleItem key={item.id} {...item} />;
+      })}
+    </section>
+  );
 };
 
 export default Items;
