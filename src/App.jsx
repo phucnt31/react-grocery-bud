@@ -14,11 +14,15 @@ const App = () => {
     };
     setItems([...items, newItem]);
   };
+  const removeItem = (id) => {
+    const newItem = items.filter((item) => item.id !== id);
+    setItems(newItem);
+  };
 
   return (
     <main className="section-center">
       <Form addItem={addItem} />
-      <Items items={items} />
+      <Items items={items} removeItem={removeItem} />
     </main>
   );
 };
