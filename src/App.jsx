@@ -25,11 +25,21 @@ const App = () => {
     setItems(newItem);
     setLocalStorage(newItem);
   };
+  const editItem = (id) => {
+    const newItem = items.map((item) => {
+      if (item.id === id) {
+        return { ...item, completed: !item.completed };
+      }
+      return item;
+    });
+    setItems(newItem);
+    setLocalStorage(newItem);
+  };
 
   return (
     <main className="section-center">
       <Form addItem={addItem} />
-      <Items items={items} removeItem={removeItem} />
+      <Items items={items} removeItem={removeItem} editItem={editItem} />
     </main>
   );
 };
